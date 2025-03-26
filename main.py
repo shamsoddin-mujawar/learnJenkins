@@ -1,14 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
 
-# Set up the WebDriver (Ensure you have the appropriate driver installed, e.g., chromedriver)
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 
 # Open Google
 driver.get("https://www.google.com")
 
-# Wait for a few seconds (optional)
-import time
-time.sleep(5)
+print("Page Title:", driver.title)
 
 # Close the browser
 driver.quit()
