@@ -6,10 +6,12 @@ from selenium.webdriver.chrome.options import Options
 options = Options()
 # REMOVE or COMMENT OUT this line:
 # options.add_argument("--headless")
+options.add_argument("--disable-gpu")
+options.add_argument("--disable-software-rasterizer")
+
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 driver.get("https://www.google.com")
 
-input("Press Enter to close...")  # Keep browser open for debugging
 driver.quit()
