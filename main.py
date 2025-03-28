@@ -1,13 +1,15 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+options = Options()
+# REMOVE or COMMENT OUT this line:
+# options.add_argument("--headless")
 
-# Open Google
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
 driver.get("https://www.google.com")
 
-print("Page Title:", driver.title)
-
-# Close the browser
+input("Press Enter to close...")  # Keep browser open for debugging
 driver.quit()
