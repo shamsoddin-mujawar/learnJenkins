@@ -7,6 +7,7 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 # Open Google
 driver.get("https://www.google.com")
 
+# print page title
 print("Page Title:", driver.title)
 
 # Close the browser
